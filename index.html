@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fazenda Nelore Prime</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">Fazenda Nelore Prime</div>
+    <nav>
+      <a href="#produtos">Gado à Venda</a>
+      <a href="#sobre">Sobre Nós</a>
+      <a href="#veterinario">Veterinário</a>
+      <a href="#contato">Contato</a>
+    </nav>
+  </header>
+
+  <section class="banner">
+    <h1>Gado Nelore de Qualidade</h1>
+    <p>Preço justo, entrega segura e acompanhamento profissional</p>
+  </section>
+
+  <section id="produtos" class="produtos">
+    <h2>Nossos Bois</h2>
+    <div class="grid-produtos" id="lista-produtos">
+     
+    </div>
+  </section>
+
+  <section id="sobre" class="painel-info">
+    <h2>Nosso trabalho</h2>
+    <p>Na Fazenda Nelore Prime, cuidamos do seu futuro. Nossos animais são criados com responsabilidade, respeito e atenção veterinária constante. Garantimos qualidade genética e manejo de primeira, prezando pelo bem-estar e produtividade.</p>
+  </section>
+
+  <section id="veterinario" class="painel-vet">
+    <h2>Medicamentos</h2>
+
+   <section class="produtos" id="servico-veterinario">
+  <h2>Serviço Veterinário - Medicamentos para Bovinos</h2>
+  <div class="grid-produtos" id="lista-medicamentos"></div>
+</section>
+
+<section id="contato" class="contato">
+    <h2>Tire suas dúvidas</h2>
+    <p>Nosso time responde rapidamente. Preencha o formulário abaixo e entraremos em contato.</p>
+    <form id="form-contato">
+      <label for="nome">Seu nome:</label>
+      <input type="text" id="nome" required />
+
+      <label for="duvida">Sua dúvida:</label>
+      <textarea id="duvida" required></textarea>
+
+      <button type="submit">Enviar</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>© 2025 Fazenda Nelore Prime | Todos os direitos reservados.</p>
+  </footer>
+
+
+  <div class="modal" id="modal-compra">
+    <div class="modal-conteudo">
+      <span class="fechar" id="fechar-modal">&times;</span>
+      <h2>Finalizar Compra</h2>
+      <img id="modal-imagem" src="" alt="Boi selecionado" />
+      <p id="modal-nome"></p>
+      <label for="quantidade">Quantidade:</label>
+      <input type="number" id="quantidade" min="1" value="1" />
+
+      <label for="pagamento">Forma de pagamento:</label>
+      <select id="pagamento">
+        <option value="pix">Pix</option>
+        <option value="boleto">Boleto</option>
+        <option value="cartao">Cartão</option>
+      </select>
+
+      <label for="comprador">Seu nome:</label>
+      <input type="text" id="comprador" required />
+
+      <label for="endereco">Endereço:</label>
+      <input type="text" id="endereco" required />
+
+      <button id="finalizar-compra">Finalizar Compra</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
