@@ -1,306 +1,728 @@
+/* Variáveis de Cores e Fontes */
 :root {
-  --cor-primaria: #3d4f2f;
-  --cor-secundaria: #04a098; /* Esta é a cor azul/verde-água desejada para a parte de baixo */
-  --cor-acento: #c19b6b;
-  --fonte-principal: 'Segoe UI', sans-serif;
+    --cor-primaria: #2E5C46; /* Um verde mais profundo e elegante */
+    --cor-secundaria: #F0F7EB; /* Um creme suave, quase branco, para o fundo principal */
+    --cor-acento: #B8860B; /* Um dourado envelhecido para botões e detalhes */
+    --cor-texto-escuro: #333333;
+    --cor-texto-claro: #FFFFFF;
+    --cor-borda: #E0E0E0; /* Borda suave para elementos */
+    --sombra-leve: 0 4px 12px rgba(0, 0, 0, 0.08); /* Sombra mais sutil */
+    --sombra-media: 0 8px 20px rgba(0, 0, 0, 0.15); /* Sombra mais pronunciada */
+
+    --fonte-principal: 'Montserrat', sans-serif;
+    --fonte-titulo: 'Playfair Display', serif; /* Fonte mais elegante para títulos */
+
+    --base-font-size: 16px; /* Tamanho de fonte base para cálculos REM */
 }
 
+/* Reset Básico e Estilos Globais */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth; /* Rolagem suave para âncoras */
 }
 
 body {
-  font-family: var(--fonte-principal);
-  background-color: var(--cor-secundaria);
-  color: #333;
-  line-height: 1.6;
-  font-size: 1.1rem; /* Increased base font size for better readability */
+    font-family: var(--fonte-principal);
+    background-color: var(--cor-secundaria);
+    color: var(--cor-texto-escuro);
+    line-height: 1.7;
+    font-size: 1rem; /* Base para rem */
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* Classes para ajuste de fonte */
+body.font-small { font-size: 0.9rem; }
+body.font-medium { font-size: 1rem; }
+body.font-large { font-size: 1.1rem; }
+
+/* Alto Contraste */
+body.high-contrast {
+    background-color: #000000;
+    color: #FFFF00;
+}
+
+body.high-contrast header,
+body.high-contrast footer {
+    background-color: #000000;
+    color: #FFFF00;
+}
+
+body.high-contrast nav a {
+    color: #FFFF00;
+}
+
+body.high-contrast .banner .banner-content h1,
+body.high-contrast .banner .banner-content p {
+    color: #FFFF00;
+    text-shadow: none;
+}
+
+body.high-contrast .produto-card {
+    background-color: #333333;
+    border-color: #FFFF00;
+    box-shadow: 0 0 10px rgba(255, 255, 0, 0.5);
+}
+
+body.high-contrast .produto-card .produto-info {
+    background-color: #333333;
+}
+
+body.high-contrast h2,
+body.high-contrast h3 {
+    color: #FFFF00;
+}
+
+body.high-contrast button,
+body.high-contrast input[type="submit"],
+body.high-contrast .modal-conteudo button {
+    background-color: #FFFF00;
+    color: #000000;
+    border-color: #FFFF00;
+}
+
+body.high-contrast input,
+body.high-contrast textarea,
+body.high-contrast select {
+    background-color: #555555;
+    color: #FFFF00;
+    border-color: #FFFF00;
+}
+
+body.high-contrast .modal-conteudo {
+    background-color: #000000;
+    border: 2px solid #FFFF00;
+}
+
+body.high-contrast .fechar {
+    color: #FFFF00;
+}
+
+/* Ferramentas de Acessibilidade */
+.accessibility-tools {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0.8rem 2rem;
+    background-color: #F8F8F8;
+    gap: 10px;
+    border-bottom: 1px solid var(--cor-borda);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.accessibility-tools button {
+    padding: 0.6rem 1.2rem;
+    border: 1px solid var(--cor-borda);
+    border-radius: 6px;
+    background-color: var(--cor-texto-claro);
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--cor-texto-escuro);
+    transition: background-color 0.2s, border-color 0.2s, transform 0.2s;
+}
+
+.accessibility-tools button:hover {
+    background-color: #EFEFEF;
+    border-color: #CCC;
+    transform: translateY(-1px);
+}
+
+
+/* Cabeçalho */
 header {
-  background-color: var(--cor-primaria);
-  color: rgb(72, 228, 10);
-  padding: 1rem 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
+    background-color: var(--cor-primaria);
+    color: var(--cor-texto-claro);
+    padding: 1.2rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25); /* Sombra mais destacada */
 }
 
 header .logo {
-  font-size: 1.8rem;
-  font-weight: bold;
+    font-family: var(--fonte-titulo);
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #D4EDDA; /* Um verde mais claro para o logo */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
-nav a {
-  color: white;
-  margin-left: 1.5rem;
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 1.1rem; /* Increased font size for nav links */
+/* Navegação Principal */
+.main-nav {
+    display: flex;
+    gap: 2rem; /* Espaçamento entre os links */
 }
 
-nav a:hover {
-  text-decoration: underline;
+.main-nav a {
+    color: var(--cor-texto-claro);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.05rem;
+    padding: 0.5rem 0;
+    position: relative; /* Para o efeito de underline */
+    transition: color 0.3s ease;
 }
 
+.main-nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--cor-acento);
+    transition: width 0.3s ease-out;
+}
+
+.main-nav a:hover::after {
+    width: 100%;
+}
+
+.main-nav a:hover {
+    color: var(--cor-acento);
+}
+
+/* Menu Hambúrguer (Escondido por padrão em desktop) */
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 100;
+}
+
+.hamburger-menu span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: var(--cor-texto-claro);
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+/* Banner Principal */
 .banner {
-  background: url('https://images.unsplash.com/photo-1599058917214-2c65b460dc97?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
-  color: white;
-  text-align: center;
-  padding: 5rem 2rem;
+    background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('https://images.unsplash.com/photo-1599058917214-2c65b460dc97?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+    color: var(--cor-texto-claro);
+    text-align: center;
+    padding: 7rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 450px;
+}
+
+.banner-content {
+    max-width: 900px;
 }
 
 .banner h1 {
-  font-size: 2.5rem;
-  margin-bottom: 0.5rem;
+    font-family: var(--fonte-titulo);
+    font-size: 3.8rem; /* Maior e mais impactante */
+    margin-bottom: 1rem;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8); /* Sombra mais forte para contraste */
+    color: #F8F8F8;
+    letter-spacing: 0.05em; /* Espaçamento entre letras */
 }
 
-/* --- Aumento da fonte do parágrafo no banner --- */
 .banner p {
-  font-size: 1.25rem; /* Further increased for banner impact */
-}
-/* ----------------------------------------------- */
-
-.produtos {
-  padding: 3rem 2rem;
-  background-color: white;
+    font-size: 1.4rem;
+    line-height: 1.6;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
-.produtos h2 {
-  text-align: center;
-  margin-bottom: 2rem;
-  font-size: 2rem; /* Ensure section headings are prominent */
+/* Seções de Conteúdo */
+.section-produtos,
+.section-medicamentos,
+.painel-info,
+.contato {
+    padding: 5rem 2.5rem; /* Espaçamento generoso */
+    background-color: var(--cor-texto-claro);
+    margin-bottom: 2.5rem;
+    border-radius: 12px; /* Bordas mais arredondadas */
+    box-shadow: var(--sombra-leve);
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
+h2 {
+    font-family: var(--fonte-titulo);
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2.8rem;
+    color: var(--cor-primaria);
+    position: relative;
+    padding-bottom: 0.8rem;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px; /* Linha mais grossa */
+    background-color: var(--cor-acento);
+    border-radius: 2px;
+}
+
+/* Grid de Produtos/Medicamentos */
 .grid-produtos {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem; /* Mais espaçamento entre cards */
+    justify-content: center;
 }
 
 .produto-card {
-  background: var(--cor-secundaria); /* Padrão: fundo secundário (azul/verde-água) */
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.08);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+    background-color: var(--cor-texto-claro);
+    border: 1px solid var(--cor-borda);
+    border-radius: 15px; /* Bordas mais arredondadas */
+    overflow: hidden;
+    box-shadow: var(--sombra-leve);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* --- Alterações específicas para o SEGUNDO cartão de produto --- */
-.grid-produtos .produto-card:nth-child(2) {
-  background-color: white; /* O fundo principal do segundo card é branco */
+.produto-card:hover {
+    transform: translateY(-8px); /* Efeito de elevação mais pronunciado */
+    box-shadow: var(--sombra-media);
 }
-
-.grid-produtos .produto-card:nth-child(2) .produto-info {
-  background-color: var(--cor-secundaria); /* A parte de baixo do segundo card volta para a cor secundária */
-}
-/* --------------------------------------------------------------- */
 
 .produto-card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
+    width: 100%;
+    height: 240px; /* Altura um pouco maior */
+    object-fit: cover;
+    border-bottom: 1px solid var(--cor-borda);
 }
 
 .produto-info {
-  padding: 1rem;
+    padding: 1.8rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    background-color: #FDFEFD;
 }
 
 .produto-info h3 {
-  font-size: 1.3rem; /* Increased font size for product titles */
-  margin-bottom: 0.5rem;
+    font-family: var(--fonte-titulo);
+    font-size: 1.6rem;
+    margin-bottom: 0.8rem;
+    color: var(--cor-primaria);
 }
 
 .produto-info p {
-  margin: 0.25rem 0;
-  font-size: 1.1rem; /* Increased font size for product description paragraphs */
+    margin: 0.5rem 0;
+    font-size: 1rem;
+    color: var(--cor-texto-escuro);
 }
 
 .produto-info button {
-  margin-top: 1rem;
-  padding: 0.7rem; /* Slightly increased padding for better click area */
-  background-color: var(--cor-acento);
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background 0.2s;
-  font-size: 1.1rem; /* Increased font size for buttons */
+    margin-top: auto;
+    padding: 1rem 1.8rem;
+    background-color: var(--cor-acento);
+    color: var(--cor-texto-claro);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s;
+    font-size: 1.1rem;
+    font-weight: 600;
+    align-self: flex-start;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .produto-info button:hover {
-  background-color: #a67c52;
+    background-color: #A3730A;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-.painel-info,
-.painel-vet,
-.contato {
-  padding: 3rem 2rem;
-  background-color: white;
+/* Seção Sobre Nós */
+.painel-info p {
+    font-size: 1.1rem;
+    text-align: justify;
+    margin-bottom: 1.2rem;
+    color: var(--cor-texto-escuro);
 }
 
-.painel-info h2,
-.painel-vet h2,
-.contato h2 {
-  margin-bottom: 1rem;
-  font-size: 2rem; /* Ensure section headings are prominent */
+.painel-info p strong {
+    color: var(--cor-primaria);
+    font-weight: 600;
 }
 
-.painel-info p,
-.painel-vet p,
-.contato p {
-  font-size: 1.1rem; /* Increased font size for general paragraphs */
+/* Formulário de Contato */
+.contato form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 2.5rem;
+    background-color: #fcfcfc;
+    border-radius: 15px;
+    box-shadow: var(--sombra-leve);
 }
 
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  max-width: 500px;
+.contato label {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--cor-primaria);
+    margin-bottom: 0.2rem;
 }
 
-label {
-  font-size: 1.1rem; /* Increased font size for form labels */
+.contato input,
+.contato textarea,
+.contato select {
+    padding: 1.1rem;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-input, textarea, select {
-  padding: 0.8rem; /* Slightly increased padding */
-  border-radius: 4px;
-  border: 1px solid #ccc;
-  font-size: 1.1rem; /* Increased font size for input fields */
+.contato input:focus,
+.contato textarea:focus,
+.contato select:focus {
+    border-color: var(--cor-acento);
+    box-shadow: 0 0 0 3px rgba(184, 134, 11, 0.2);
+    outline: none;
 }
 
-textarea {
-  resize: vertical;
+.contato textarea {
+    resize: vertical;
+    min-height: 150px;
 }
 
-button[type="submit"] {
-  background-color: var(--cor-primaria);
-  color: white;
-  padding: 0.9rem; /* Increased padding */
-  border: none;
-  border-radius: 4px;
-  font-size: 1.1rem; /* Increased font size for submit button */
-  cursor: pointer;
+.contato button[type="submit"] {
+    background-color: var(--cor-primaria);
+    color: var(--cor-texto-claro);
+    padding: 1.2rem 2rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.15rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
 }
 
-button[type="submit"]:hover {
-  background-color: #2e3d21;
+.contato button[type="submit"]:hover {
+    background-color: #254A37;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.3);
 }
 
+/* Rodapé */
 footer {
-  background-color: var(--cor-primaria);
-  color: white;
-  text-align: center;
-  padding: 1rem;
-  margin-top: 3rem;
-  font-size: 1.05rem; /* Slightly increased font size for footer */
+    background-color: var(--cor-primaria);
+    color: var(--cor-texto-claro);
+    text-align: center;
+    padding: 1.8rem;
+    margin-top: 5rem;
+    font-size: 0.95rem;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.15);
 }
 
+/* Modal de Compra */
 .modal {
-  display: none;
-  position: fixed;
-  z-index: 99;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    position: fixed;
+    z-index: 1000; /* Acima de tudo */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7); /* Fundo semi-transparente mais escuro */
+    justify-content: center;
+    align-items: center;
+    animation: fadeInBackground 0.3s ease-out forwards;
 }
 
-#modal-imagem {
-  width: 100%;
-  max-width: 300px;
-  height: auto;
-  display: block;
-  margin: 0 auto 1rem auto;
-  border-radius: 6px;
+@keyframes fadeInBackground {
+    from { background-color: rgba(0, 0, 0, 0); }
+    to { background-color: rgba(0, 0, 0, 0.7); }
 }
 
 .modal-conteudo {
-  background-color: white;
-  margin: 5% auto;
-  padding: 2rem;
-  width: 90%;
-  max-width: 500px;
-  border-radius: 8px;
-  position: relative;
+    background-color: var(--cor-texto-claro);
+    padding: 3rem;
+    width: 90%;
+    max-width: 600px; /* Maior largura máxima */
+    border-radius: 18px; /* Mais arredondado */
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    animation: fadeInModal 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; /* Animação mais sofisticada */
 }
+
+@keyframes fadeInModal {
+    from {
+        opacity: 0;
+        transform: translateY(-50px) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
 
 .modal-conteudo h2 {
-  font-size: 1.8rem; /* Increased font size for modal heading */
+    font-family: var(--fonte-titulo);
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2.2rem;
+    color: var(--cor-primaria);
+    padding-bottom: 0.5rem; /* Reset para evitar duplo ::after */
+}
+.modal-conteudo h2::after {
+    content: none; /* Remove a linha de baixo do h2 no modal */
 }
 
-.modal-conteudo p {
-  font-size: 1.1rem; /* Increased font size for modal paragraphs */
+.modal-body-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem; /* Espaçamento entre os elementos do formulário */
+}
+
+#modal-imagem {
+    width: 90%;
+    max-width: 320px;
+    height: 200px; /* Altura fixa para imagens no modal */
+    object-fit: cover;
+    display: block;
+    margin: 0 auto 1.8rem auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.item-name {
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: var(--cor-acento);
 }
 
 .modal-conteudo label {
-  font-size: 1.1rem; /* Increased font size for modal labels */
+    font-size: 1.05rem;
+    font-weight: 500;
+    margin-top: 0.5rem;
+    color: var(--cor-texto-escuro);
 }
 
-.modal-conteudo input,
+.modal-conteudo input[type="number"],
+.modal-conteudo input[type="text"],
 .modal-conteudo select {
-  font-size: 1.1rem; /* Increased font size for modal inputs */
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+    width: 100%;
 }
 
 .modal-conteudo button {
-  font-size: 1.1rem; /* Increased font size for modal button */
+    margin-top: 2rem;
+    padding: 1.1rem;
+    background-color: var(--cor-primaria);
+    color: var(--cor-texto-claro);
+    border: none;
+    border-radius: 8px;
+    font-size: 1.15rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+.modal-conteudo button:hover {
+    background-color: #254A37;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.3);
 }
 
 .fechar {
-  position: absolute;
-  right: 1rem;
-  top: 1rem;
-  font-size: 1.7rem; /* Increased font size for close button */
-  cursor: pointer;
+    position: absolute;
+    right: 1.8rem;
+    top: 1.5rem;
+    font-size: 2.5rem; /* Maior e mais fácil de clicar */
+    cursor: pointer;
+    color: #666;
+    transition: color 0.2s ease, transform 0.2s;
+    line-height: 1; /* Alinha o X corretamente */
 }
 
+.fechar:hover {
+    color: var(--cor-acento);
+    transform: rotate(90deg); /* Efeito de rotação ao fechar */
+}
+
+/* --- Media Queries para Responsividade --- */
 @media (max-width: 768px) {
-  nav {
-    flex-direction: column;
-    gap: 1rem;
-    margin-top: 1rem;
-  }
+    header {
+        padding: 1rem 1.5rem;
+    }
 
-  .banner h1 {
-    font-size: 2.2rem; /* Adjusted for smaller screens */
-  }
+    .hamburger-menu {
+        display: flex;
+    }
 
-  .banner p {
-    font-size: 1.2rem; /* Adjusted for smaller screens */
-  }
+    .main-nav {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: var(--cor-primaria);
+        position: absolute;
+        top: 68px; /* Abaixo do cabeçalho */
+        left: 0;
+        padding: 1rem 0;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        z-index: 900; /* Garante que o menu esteja acima de outros elementos */
+        animation: slideDown 0.3s ease-out forwards;
+    }
 
-  body {
-    font-size: 1rem; /* Slightly reduce base font size on smaller screens */
-  }
+    .main-nav.active {
+        display: flex;
+    }
 
-  nav a,
-  .produto-info p,
-  .painel-info p,
-  .painel-vet p,
-  .contato p,
-  label,
-  input,
-  textarea,
-  select,
-  button,
-  footer {
-    font-size: 1rem; /* Adjust smaller text elements for mobile */
-  }
+    .main-nav a {
+        text-align: center;
+        padding: 0.8rem 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        font-size: 1rem;
+    }
 
-  .produto-info h3,
-  .painel-info h2,
-  .painel-vet h2,
-  .contato h2,
-  .modal-conteudo h2 {
-    font-size: 1.6rem; /* Adjust headings for mobile */
-  }
+    .main-nav a:last-child {
+        border-bottom: none;
+    }
+
+    .banner {
+        padding: 5rem 1.5rem;
+        min-height: 350px;
+    }
+
+    .banner h1 {
+        font-size: 2.8rem;
+    }
+
+    .banner p {
+        font-size: 1.2rem;
+    }
+
+    .section-produtos,
+    .section-medicamentos,
+    .painel-info,
+    .contato {
+        padding: 3.5rem 1.5rem;
+    }
+
+    h2 {
+        font-size: 2.2rem;
+        margin-bottom: 2.5rem;
+    }
+
+    .grid-produtos {
+        grid-template-columns: 1fr; /* Uma coluna em telas menores */
+    }
+
+    .produto-info button {
+        align-self: center;
+    }
+
+    .modal-conteudo {
+        padding: 2rem;
+        margin: 5% auto;
+    }
+
+    .modal-conteudo h2 {
+        font-size: 1.8rem;
+    }
+
+    #modal-imagem {
+        height: 180px;
+    }
+}
+
+@media (max-width: 480px) {
+    header .logo {
+        font-size: 1.8rem;
+    }
+
+    .banner h1 {
+        font-size: 2.2rem;
+    }
+
+    .banner p {
+        font-size: 1rem;
+    }
+
+    h2 {
+        font-size: 1.9rem;
+    }
+
+    .accessibility-tools {
+        justify-content: center;
+        padding: 0.5rem;
+        gap: 8px;
+    }
+
+    .accessibility-tools button {
+        padding: 0.5rem 0.9rem;
+        font-size: 0.85rem;
+    }
+
+    .produto-info h3 {
+        font-size: 1.4rem;
+    }
+
+    .produto-info p, .painel-info p, .contato p, .contato label {
+        font-size: 0.95rem;
+    }
+
+    .contato input, .contato textarea, .contato select,
+    .modal-conteudo input, .modal-conteudo select {
+        padding: 0.9rem;
+        font-size: 0.95rem;
+    }
+
+    .contato button[type="submit"], .modal-conteudo button {
+        padding: 1rem;
+        font-size: 1rem;
+    }
+
+    .modal-conteudo {
+        padding: 1.5rem;
+    }
+
+    .fechar {
+        font-size: 2rem;
+        right: 1rem;
+        top: 1rem;
+    }
+}
+
+/* Animação para o menu hamburguer */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

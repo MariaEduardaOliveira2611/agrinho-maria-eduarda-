@@ -1,100 +1,115 @@
-<!OCTYPE html>
-<html lang="pt-BDR">
+<!DOCTYPE html>
+<html lang="pt-BR">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fazenda Céu Azul </title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fazenda Céu Azul - Pecuária de Qualidade</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 </head>
+
 <body>
-  <header>
-    <div class="logo">Fazenda Céu Azul </div>
-    <nav>
-      <a href="#produtos">Gado à Venda e acompanhamento veterinário presencial</a>
-      <a href="#sobre">Sobre Nós</a>
-      <a href="#veterinario">Veterinário</a>
-      <a href="#contato">Contato</a>
-    </nav>
-  </header>
+    <header>
+        <div class="logo">Fazenda Céu Azul</div>
+        <button class="hamburger-menu" aria-label="Abrir menu de navegação" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav class="main-nav">
+            <a href="#produtos">Gado à Venda</a>
+            <a href="#medicamentos">Medicamentos e Saúde Animal</a>
+            <a href="#sobre">Sobre Nós</a>
+            <a href="#contato">Contato</a>
+        </nav>
+    </header>
 
-  <section class="banner">
-    <h1>Gado Nelore de  Alta Qualidade</h1>
-    <p>Preço justo, entrega segura e acompanhamento profissional, diretamente a você com ótimos preços e acessibilidade!</p>
-  </section>
+    <section class="banner">
+        <div class="banner-content">
+            <h1>Gado Nelore de Alta Qualidade</h1>
+            <p>Preço justo, entrega segura e acompanhamento profissional, diretamente a você com ótimos preços e acessibilidade!</p>
+        </div>
+    </section>
 
-  <section id="produtos" class="produtos">
-    <h2>Nossos Bois</h2>
-    <div class="grid-produtos" id="lista-produtos">
-     
+    <section class="accessibility-tools">
+        <button id="toggle-contrast" title="Alternar Alto Contraste">Alto Contraste</button>
+        <button id="increase-font" title="Aumentar Tamanho da Fonte">A+</button>
+        <button id="decrease-font" title="Diminuir Tamanho da Fonte">A-</button>
+    </section>
+
+    <section id="produtos" class="section-produtos">
+        <h2>Nossos Bois</h2>
+        <div class="grid-produtos" id="lista-produtos">
+            </div>
+    </section>
+
+    <section id="sobre" class="painel-info">
+        <h2>Nosso Trabalho e Compromisso</h2>
+        <p>Na **Fazenda Céu Azul**, nossa paixão pelo campo se une à excelência na pecuária para oferecer a você o que há de melhor em criação e manejo de gado. Somos movidos pela responsabilidade e pelo compromisso com a qualidade genética e o bem-estar animal.</p>
+        <p>Trabalhamos incansavelmente para garantir a venda de animais saudáveis, robustos e com alto padrão genético, ideais tanto para a reprodução quanto para a engorda. Cada animal do nosso rebanho recebe atenção individualizada, refletindo em sua saúde e produtividade.</p>
+        <p>Nosso diferencial vai além da venda: oferecemos **assistência veterinária contínua**, com serviços que abrangem desde o manejo reprodutivo e controle sanitário rigoroso até orientações personalizadas. Acreditamos que o conhecimento técnico, aliado à confiança e transparência, são os pilares para o sucesso do seu negócio rural.</p>
+        <p>Seja você um pequeno produtor em busca de melhorias ou um grande investidor procurando expandir, temos a solução ideal para suas necessidades. Convidamos você a nos visitar, conhecer nosso rebanho de perto e descobrir como a Fazenda Céu Azul pode ser sua parceira no caminho da alta produtividade e do cuidado animal.</p>
+    </section>
+
+    <section id="medicamentos" class="section-medicamentos">
+        <h2>Medicamentos e Saúde Animal</h2>
+        <p>Oferecemos uma linha completa de medicamentos e produtos essenciais para a saúde e o bem-estar do seu rebanho, com a qualidade e confiança que você precisa.</p>
+        <div class="grid-produtos" id="lista-medicamentos">
+            </div>
+    </section>
+
+    <section id="contato" class="contato">
+        <h2>Tire Suas Dúvidas Conosco!</h2>
+        <p>Nosso time está pronto para te ajudar! Preencha o formulário abaixo e entraremos em contato o mais breve possível para esclarecer suas perguntas e necessidades.</p>
+        <form id="form-contato">
+            <label for="nome">Seu nome completo:</label>
+            <input type="text" id="nome" name="nome" required placeholder="Ex: João da Silva" />
+
+            <label for="email">Seu e-mail:</label>
+            <input type="email" id="email" name="email" required placeholder="Ex: seuemail@dominio.com" />
+
+            <label for="duvida">Sua dúvida ou mensagem:</label>
+            <textarea id="duvida" name="duvida" rows="5" required placeholder="Descreva sua dúvida ou o que você precisa."></textarea>
+
+            <button type="submit">Enviar Mensagem</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Fazenda Céu Azul | Todos os direitos reservados.</p>
+    </footer>
+
+    <div class="modal" id="modal-compra" role="dialog" aria-modal="true" aria-labelledby="modal-heading">
+        <div class="modal-conteudo">
+            <span class="fechar" id="fechar-modal" aria-label="Fechar">&times;</span>
+            <h2 id="modal-heading">Finalizar Compra</h2>
+            <div class="modal-body-content">
+                <img id="modal-imagem" src="" alt="Item selecionado" />
+                <p id="modal-nome" class="item-name"></p>
+
+                <label for="quantidade">Quantidade:</label>
+                <input type="number" id="quantidade" min="1" value="1" aria-label="Quantidade do item" />
+
+                <label for="pagamento">Forma de pagamento:</label>
+                <select id="pagamento" aria-label="Escolha a forma de pagamento">
+                    <option value="pix">Pix</option>
+                    <option value="boleto">Boleto</option>
+                    <option value="cartao">Cartão de Crédito</option>
+                </select>
+
+                <label for="comprador">Seu nome completo:</label>
+                <input type="text" id="comprador" required aria-label="Nome do comprador" />
+
+                <label for="endereco">Endereço de entrega:</label>
+                <input type="text" id="endereco" required aria-label="Endereço de entrega" />
+
+                <button id="finalizar-compra">Finalizar Compra</button>
+            </div>
+        </div>
     </div>
-  </section>
 
-  <section id="sobre" class="painel-info">
-    <h2>Nosso trabalho</h2>
-    <p>Na Fazenda Céu Azul,Bem-vindo ao nosso espaço dedicado à pecuária de qualidade e cuidado animal
-
-      Aqui, unimos paixão pelo campo, excelência genética e atenção veterinária especializada para oferecer o melhor em criação e manejo de gado. Trabalhamos com responsabilidade e compromisso, garantindo a venda de animais saudáveis, bem nutridos e com alto padrão genético, ideais para reprodução ou engorda.
-      
-      Nosso diferencial está na assistência veterinária contínua, com serviços que vão desde o manejo reprodutivo e controle sanitário até orientações personalizadas para melhorar a produtividade e o bem-estar do rebanho.
-      
-      Seja você um pequeno produtor ou grande investidor, temos a solução ideal para seu negócio. Confiança, transparência e conhecimento técnico são os pilares que sustentam nosso trabalho.
-      
-      Entre em contato e venha conhecer nosso rebanho e nossos serviços. Aqui, o campo e o cuidado caminham juntos, para sua melhor produtividade!!</p>
-  </section>
-
-  <section id="veterinario" class="painel-vet">
-    <h2>Medicamentos</h2>
-
-   <section class="produtos" id="servico-veterinario">
-  <h2>Serviço Veterinário - Medicamentos para Bovinos</h2>
-  <div class="grid-produtos" id="lista-medicamentos"></div>
-</section>
-
-<section id="contato" class="contato">
-    <h2>Tire suas dúvidas</h2>
-    <p>Nosso time responde rapidamente. Preencha o formulário abaixo e entraremos em contato.</p>
-    <form id="form-contato">
-      <label for="nome">Seu nome:</label>
-      <input type="text" id="nome" required />
-
-      <label for="duvida">Sua dúvida:</label>
-      <textarea id="duvida" required></textarea>
-
-      <button type="submit">Enviar</button>
-    </form>
-  </section>
-
-  <footer>
-    <p>© 2025 Fazenda Nelore Prime | Todos os direitos reservados.</p>
-  </footer>
-
-
-  <div class="modal" id="modal-compra">
-    <div class="modal-conteudo">
-      <span class="fechar" id="fechar-modal">&times;</span>
-      <h2>Finalizar Compra</h2>
-      <img id="modal-imagem" src="" alt="Boi selecionado" />
-      <p id="modal-nome"></p>
-      <label for="quantidade">Quantidade:</label>
-      <input type="number" id="quantidade" min="1" value="1" />
-
-      <label for="pagamento">Forma de pagamento:</label>
-      <select id="pagamento">
-        <option value="pix">Pix</option>
-        <option value="boleto">Boleto</option>
-        <option value="cartao">Cartão</option>
-      </select>
-
-      <label for="comprador">Seu nome:</label>
-      <input type="text" id="comprador" required />
-
-      <label for="endereco">Endereço:</label>
-      <input type="text" id="endereco" required />
-
-      <button id="finalizar-compra">Finalizar Compra</button>
-    </div>
-  </div>
-
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
+
 </html>
